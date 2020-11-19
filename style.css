@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  /* padding: 0; */
+}
+
+/* div {
+  background-color: blue;
+} */
+
+.custom-btn {
+  color: white;
+  padding: 10px;
+  /* padding: 10px 20px 30px 100px; */
+  /* padding: 10px 10px; */
+  /* padding: 10px 50px; */
+  outline: 0;
+  border-radius: 50px;
+  outline-style: none;
+  outline-width: 0;
+  border: none;
+}
+
+.header {
+  text-align: center;
+  background-color: tomato;
+  padding: 10px 0;
+}
+
+.header-title {
+  color: white;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  align-items: baseline;
+}
+
+.center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+.space-around {
+  justify-content: space-around;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.square {
+  height: 200px;
+  width: 200px;
+}
+
+#idButton {
+  color: white;
+  padding: 20px;
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+  flex-grow: 1;
+}
+.teal {
+  background-color: teal;
+  /* flex-grow: 2; */
+  flex-shrink: 3;
+}
+.tomato {
+  background-color: tomato;
+  flex-grow: 1;
+}
+
+.tomato:hover {
+  background-color: white;
+  color: tomato;
+  border: 0.5px solid tomato;
+}
+
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: teal;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: thistle;
+  }
+} */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  body {
+    background-color: tomato;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: red;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  body {
+    background-color: seagreen;
+  }
+}
