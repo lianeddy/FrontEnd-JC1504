@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  height: 300px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.item {
+  width: 14%;
+  background-color: coral;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: crimson;
+}
+.item-1 {
+  height: 50%;
+}
+.item-2 {
+  height: 20%;
+}
+.item-3 {
+  height: 40%;
+}
+.item-4 {
+  height: 70%;
+}
+.item-5 {
+  height: 10%;
+}

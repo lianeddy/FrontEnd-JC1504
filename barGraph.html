@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="barGraph.css">
+</head>
+<body>
+    <div class="container" id="output">
+
+    </div>
+    <div>
+        <input type="button" value="Sort" onclick="sortList()">
+        <input type="button" value="Reset" onclick="resetDataDefault()">
+    </div>
+</body>
+
+<script>
+    var data = [50,40,20,70,10];
+    var defData = [50,40,20,70,10];
+
+    function showList(arr){
+        var newArr = arr.map((val, index) => {
+            return`<div class="item item-${index+1}" name="item" onclick="valueAlert(${index})" style="height: ${val}%"></div>`
+        })
+        return document.getElementById('output').innerHTML = newArr.join('')
+    }
+
+    function sortList(){
+        var newData = data.sort((a,b) => a-b)
+        var items = document.getElementsByName("item");
+        console.log(newData);
+        console.log(items);
+        // items.forEach((val, index) => {
+        //     val.style.height = `${newData[index]}%`
+        // })
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.height = `${newData[i]}%`
+        }
+    }
+
+    function resetDataDefault(){
+        var items = document.getElementsByName("item");
+        items.forEach((val, index) => {
+            val.style.height = `${defData[index]}%`
+        })
+    }
+
+    function valueAlert(index){
+        var items = document.getElementsByName("item");
+        alert(items[index].style.height)
+    }
+
+    showList(data)
+</script>
+
+</html>
