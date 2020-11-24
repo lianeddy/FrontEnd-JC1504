@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangga</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.zepto.store%2Fmy%2Fwp-content%2Fuploads%2F2020%2F03%2FMangga-Susu-Susu-Mango.jpg&f=1&nofb=1" alt="apel.jpg">
+            </div>
+            <div class="col-6">
+                <div><h1>Mangga</h1></div>
+                <div><h3>Rp. 30000</h3></div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ut, porro quaerat repudiandae fugiat debitis quod totam repellendus voluptates veniam dolore eaque deserunt ipsa eos id. Maiores dolorum cupiditate necessitatibus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora iste deleniti obcaecati. Eius voluptatum molestiae hic voluptas eligendi nobis sapiente repellendus error voluptate ad accusantium excepturi quis consequuntur, neque rerum!</div>
+                <div class="d-flex mt-3 mb-3 align-items-center">
+                    <button class="btn btn-primary" onclick="kurang()" id="btn-min" disabled>-</button>
+                    <div class="mx-3" id="qty">1</div>
+                    <button class="btn btn-primary" onclick="tambah()" id="btn-plus">+</button>
+                </div>
+                <div class="my-3">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" onclick="showQty()">
+                        Buy
+                    </button>
+                </div>
+                <div>
+                    <a href="./index.html">Back to products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Added to Cart!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body d-flex align-items-center flex-column">
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-FqVB0I2bP7M%2FU9RLuaLRC2I%2FAAAAAAAAA18%2F0CPwPy-poNE%2Fs1600%2FKandungan-Gizi-Dan-Manfaat-Buah-Apel.jpg&f=1&nofb=1" alt="apel.jpg">
+              <div>
+                  Quantity: <span id="qty-modal" style="font-weight: bolder;"></span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function kurang(){
+        var qty = document.getElementById("qty").innerHTML;
+        qty--;
+        if(qty === 1){
+            document.getElementById("btn-min").disabled = true;
+        }
+        if(qty < 10){
+            document.getElementById("btn-plus").disabled = false;
+        }
+        document.getElementById("qty").innerHTML = qty;
+    }
+    function tambah(){
+        var qty = parseInt(document.getElementById("qty").innerHTML);
+        qty++;
+        if(qty > 1){
+            document.getElementById("btn-min").disabled = false;
+        }
+        if(qty === 10){
+            document.getElementById("btn-plus").disabled = true;
+        }
+        return document.getElementById("qty").innerHTML = qty;
+    }
+
+    function showQty(){
+        var qty = parseInt(document.getElementById("qty").innerHTML);
+        return document.getElementById("qty-modal").innerHTML = qty;
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</html>
