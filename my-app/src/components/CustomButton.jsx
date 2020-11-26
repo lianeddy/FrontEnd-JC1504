@@ -1,14 +1,14 @@
 import React from "react";
 
 const CustomButton = (props) => {
-  console.log(props);
+  // props.warna props.klik props.font
   return (
     <button
       onClick={props.klik}
       style={{
         padding: "10px",
         backgroundColor: props.warna,
-        color: "white",
+        color: props.font,
         outline: "none",
         border: "none",
       }}
@@ -18,4 +18,4 @@ const CustomButton = (props) => {
   );
 };
 
-export default CustomButton;
+export default CustomButton

@@ -5,8 +5,10 @@ var obj = {
 
 // Destructuring
 obj.nama = "lian";
-var { nama, arr } = obj;
-console.log(nama);
-console.log(arr);
+// var { nama, arr } = obj;
+// console.log(nama);
+// console.log(arr);
 // console.log(obj.nama);
 // console.log(obj.arr);
+
+console.log(obj["nama"]);
