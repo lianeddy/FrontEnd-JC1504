@@ -1,10 +1,16 @@
 import React from "react";
 import CardProduct from "../components/CardProduct.jsx";
+import { Link } from "react-router-dom";
 
 class Method extends React.Component {
   state = {
     data: [],
     counter: 0,
+    input: {
+      nama: "",
+      image: "",
+      caption: "",
+    },
   };
 
   componentDidMount() {
@@ -42,14 +48,41 @@ class Method extends React.Component {
     // Unmounting
   }
 
-  //   renderData = () => {
-  //     var newArr = this.state.data.map((val) => {
-  //       return (
-  //         <CardProduct nama={val.nama} image={val.image} caption={val.caption} />
-  //       );
-  //     });
-  //     return newArr;
-  //   };
+  renderData = () => {
+    var newArr = this.state.data.map((val, index) => {
+      return (
+        <Link to={`/detail-buah?namaproduk=${val.nama}`}>
+          <CardProduct
+            nama={val.nama}
+            image={val.image}
+            caption={val.caption}
+          />
+        </Link>
+      );
+    });
+    console.log(newArr);
+    return newArr;
+  };
+
+  onChangeInput = (e) => {
+    this.setState({
+      input: {
+        ...this.state.input,
+        [e.target.id]: e.target.value,
+      },
+    });
+  };
+
+  submitData = () => {
+    this.setState({
+      data: [...this.state.data, this.state.input],
+      input: {
+        nama: "",
+        image: "",
+        caption: "",
+      },
+    });
+  };
 
   render() {
     console.log(this.state.data);
@@ -61,7 +94,7 @@ class Method extends React.Component {
           +
         </div> */}
         <div style={{ display: "flex", justifyContent: "center" }}>
-          {this.state.data.map((val) => {
+          {/* {this.state.data.map((val) => {
             return (
               <CardProduct
                 nama={val.nama}
@@ -69,7 +102,48 @@ class Method extends React.Component {
                 caption={val.caption}
               />
             );
-          })}
+          })} */}
+          {this.renderData()}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexFlow: "column",
+          }}
+        >
+          <div>
+            <input
+              type="text"
+              onChange={this.onChangeInput}
+              id="nama"
+              value={this.state.input.nama}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              onChange={this.onChangeInput}
+              id="image"
+              value={this.state.input.image}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              onChange={this.onChangeInput}
+              id="caption"
+              value={this.state.input.caption}
+            />
+          </div>
+          <div>
+            <button onClick={this.submitData}>Click Me!</button>
+          </div>
+          <div>
+            <Link to="/">
+              <button>Pindah ke Home</button>
+            </Link>
+          </div>
         </div>
       </div>
     );
