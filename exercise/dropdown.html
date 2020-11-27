@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <select name="colors" id="colors">
+
+        </select>
+        <button onclick="alertColours()">Click Me</button>
+        <button onclick="editColours()">Edit</button>
+        <input type="text" name="addcolor" id="addcolor">
+        <button onclick="addColors()">Add Color</button>
+    </div>
+</body>
+<script>
+    let colours = ["Red", "Yellow", "Green"]
+    function mapOptions(){
+        let newArr = colours.map((val) => {
+            return `<option value="${val}">${val}</option>`
+        })
+        return document.getElementById("colors").innerHTML = newArr.join("");
+    }
+
+    function alertColours(){
+        let color = document.getElementById("colors").value;
+        alert(color);
+    }
+
+    function addColors(){
+        colours.push(document.getElementById("addcolor").value);
+        document.getElementById("addcolor").value = "";
+        mapOptions()
+    }
+
+    function editColours(){
+        let color = document.getElementById("colors").value;
+        let edit = prompt(`Edit Warna ${color} jadi warna apa?`)
+        let idx = colours.findIndex((val) => {
+            return val === color
+        })
+        colours[idx] = edit;
+        mapOptions()
+    }
+    mapOptions()
+</script>
+</html>

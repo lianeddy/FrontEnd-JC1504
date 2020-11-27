@@ -1,6 +1,7 @@
 import React from "react";
-import CustomButton from "../components/CustomButton.jsx";
+// import CustomButton from "../components/CustomButton.jsx";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 class Intro extends React.Component {
   state = {
@@ -105,7 +106,7 @@ class Intro extends React.Component {
           />
         </div>
         <div>
-          <CustomButton klik={this.register}>Register</CustomButton>
+          <Button>Click Me</Button>
         </div>
         <div>
           <Link to="/bebas">

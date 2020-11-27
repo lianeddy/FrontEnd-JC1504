@@ -92,3 +92,25 @@ function multiply(num) {
 // grades([90,60,40,70,20]) => "F"
 // grades([90,90,90]) => "B"
 // grades([50,100]) => "C"
+
+//Terima 2 parameter ([Number], num)
+// Panjang Arraynya bebas
+// first([1,2,3,4,5], 3) => [1,2,3]
+// first([1,2,3,4,5], 2) => [1,2]
+// first([50,23,43,56,345,23,12], 4) => [50,23,43,56]
+
+function lelang(num) {
+  let baju = 10000;
+  let celana = 20000;
+  let kacamata = 30000;
+  for (let i = 0; i < num; i++) {
+    baju = Math.ceil((baju += baju * 0.1));
+    celana = Math.ceil((celana += celana * 0.2));
+    kacamata = Math.ceil((kacamata += kacamata * 0.3));
+  }
+  return `Di menit ke-${num} \n Nama Barang: Baju, harga = Rp. ${baju.toLocaleString()} \n Nama Barang: Celana, harga = Rp. ${celana.toLocaleString()} \n Nama Barang: Kacamata, harga = Rp. ${kacamata.toLocaleString()}`;
+}
+
+console.log(lelang(1));
+console.log(lelang(5));
+console.log(lelang(10));

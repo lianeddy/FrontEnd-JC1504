@@ -94,15 +94,6 @@ class Method extends React.Component {
           +
         </div> */}
         <div style={{ display: "flex", justifyContent: "center" }}>
-          {/* {this.state.data.map((val) => {
-            return (
-              <CardProduct
-                nama={val.nama}
-                image={val.image}
-                caption={val.caption}
-              />
-            );
-          })} */}
           {this.renderData()}
         </div>
         <div
