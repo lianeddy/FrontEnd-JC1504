@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { parse } from "querystring";
-import { Button } from "reactstrap";
+import { Button, Alert } from "reactstrap";
 
 class DetailBuah extends Component {
   state = {};
@@ -9,6 +9,8 @@ class DetailBuah extends Component {
     return (
       <div>
         <div>ini detail buah</div>
+        <div className="alert alert-primary">Alert</div>
+        <Alert color="danger">Alert</Alert>
         <div>
           <Button
             color={"primary"}

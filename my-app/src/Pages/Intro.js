@@ -106,7 +106,8 @@ class Intro extends React.Component {
           />
         </div>
         <div>
-          <Button>Click Me</Button>
+          <Button color="success">Click Me</Button>
+          <Button color="success">Click Me</Button>
         </div>
         <div>
           <Link to="/bebas">
