@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Button, Input } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class LoginPage extends Component {
   state = {
-    loginInfo: { username: "", password: "" },
+    loginInfo: { usernameLogin: "", passwordLogin: "" },
   };
 
   onChangeInput = (e) => {
@@ -18,7 +19,7 @@ class LoginPage extends Component {
 
   clickLogin = () => {
     Axios.get(
-      `http://localhost:2000/users?username=${this.state.loginInfo.username}&password=${this.state.loginInfo.password}`
+      `http://localhost:2000/users?username=${this.state.loginInfo.usernameLogin}&password=${this.state.loginInfo.passwordLogin}`
     )
       .then((res) => {
         console.log(res.data);
@@ -50,7 +51,7 @@ class LoginPage extends Component {
             <Input
               placeholder="Username"
               onChange={this.onChangeInput}
-              id="username"
+              id="usernameLogin"
               value={this.state.loginInfo.username}
             />
           </div>
@@ -59,7 +60,7 @@ class LoginPage extends Component {
               type="password"
               placeholder="Password"
               onChange={this.onChangeInput}
-              id="password"
+              id="passwordLogin"
               value={this.state.loginInfo.password}
             />
           </div>
@@ -67,6 +68,9 @@ class LoginPage extends Component {
             <Button color="success" onClick={this.clickLogin}>
               Login
             </Button>
+            <Link to="/register">
+              <Button color="danger">To Register</Button>
+            </Link>
           </div>
         </div>
       </div>

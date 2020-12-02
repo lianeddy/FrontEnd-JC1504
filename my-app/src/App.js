@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 // import ComponentMap from "./Pages/ComponentMap";
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
 
 class App extends Component {
   render() {
@@ -17,6 +18,8 @@ class App extends Component {
         <Route path="/component-map" component={ComponentMap} /> */}
         <Route path="/" exact component={Home} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
       </div>
     );
   }

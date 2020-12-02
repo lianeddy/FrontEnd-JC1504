@@ -1,14 +1,15 @@
 var obj = {
   nama: "Bambang",
   arr: [1, 2, 3],
+  bool: false,
 };
 
 // Destructuring
 obj.nama = "lian";
 obj.arr = [4, 5, 6];
-// var { nama, arr } = obj;
-// console.log(nama);
-// console.log(arr);
+var { nama, arr } = obj;
+console.log(nama);
+console.log(arr);
 // console.log(obj.nama);
 // console.log(obj.arr);
 
