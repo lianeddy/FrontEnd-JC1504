@@ -28,6 +28,13 @@ class ProductPage extends Component {
     // Axios get
   }
 
+  // Tambah Produk
+  // ComponentDidUpdate
+  // addProduct() === function sendiri
+  // Setelah axios.post ada .then
+  // di dalam .then ada axios.get(products)
+  // setstate lagi
+
   renderProduct() {
     console.log(this.state.data);
     return this.state.data.map((val) => {
