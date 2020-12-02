@@ -22,11 +22,13 @@ class Home extends Component {
         this.setState({
           categories: res.data.categories,
         });
-        // console.log(this.state.categories);
+        // Axios.get here
       })
       .catch((err) => {
         console.log(err, "ini error");
       });
+
+    // here
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -60,7 +62,7 @@ class Home extends Component {
             color="danger"
             style={{ width: "100%" }}
             onClick={() =>
-              this.changeSelected(val.categories.name, val.categories.name)
+              this.changeSelected(val.categories.name, val.categories.id)
             }
           >
             {val.categories.name}

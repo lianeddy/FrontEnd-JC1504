@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 // import DetailBuah from "./Pages/DetailBuah";
 // import ComponentMap from "./Pages/ComponentMap";
 import Home from "./Pages/Home";
+import LoginPage from "./Pages/LoginPage";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Route path="/detail-buah" component={DetailBuah} />
         <Route path="/component-map" component={ComponentMap} /> */}
         <Route path="/" exact component={Home} />
+        <Route path="/login" component={LoginPage} />
       </div>
     );
   }
