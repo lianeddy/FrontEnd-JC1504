@@ -87,6 +87,17 @@ class LoginPage extends Component {
   }
 }
 
+// mapstatetoprops itu untuk ambil data dari global state
+// kenapa state.count
+// lihat initial state
+// const INITIAL_STATE = {
+//   count: 0,
+//   username: "",
+//   password: "",
+// };
+
+// tulisan di kiri itu nama props
+// this.props.count untuk akses data global state count
 const mapStateToProps = (state) => {
   return {
     count: state.count,
@@ -94,6 +105,10 @@ const mapStateToProps = (state) => {
   };
 };
 
+// argumen kedua dari fungsi connect adalah object
+// object diisi dengan action creator
+// function yang return action
+// function yang return object dengan type dan payload
 export default connect(mapStateToProps, {
   decreaseCount,
   increaseCount,

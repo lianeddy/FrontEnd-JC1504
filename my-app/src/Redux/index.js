@@ -11,6 +11,8 @@ const INITIAL_STATE = {
 // Memiliki dua property {type, payload}
 // Type itu string
 // {type: "TAMBAH"}
+// Payload itu data yang kita terima di komponen
+// yang kita mau taruh di global state
 
 // Action Creator
 // Sebuah function
