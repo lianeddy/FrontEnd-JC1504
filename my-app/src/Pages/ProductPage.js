@@ -14,6 +14,13 @@ class ProductPage extends Component {
   };
 
   componentDidMount() {
+    this.fetchData();
+    // Fetch Data Buah
+    // setState = state data
+    // Axios get
+  }
+
+  fetchData = () => {
     Axios.get(`${API_URL}/products`)
       .then((res) => {
         this.setState({
@@ -23,10 +30,7 @@ class ProductPage extends Component {
       .catch((err) => {
         console.log(err);
       });
-    // Fetch Data Buah
-    // setState = state data
-    // Axios get
-  }
+  };
 
   // Tambah Produk
   // ComponentDidUpdate

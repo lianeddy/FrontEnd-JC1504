@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Button, Input } from "reactstrap";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { registerAction } from "../Redux";
 
 class RegisterPage extends Component {
   state = {
@@ -19,6 +21,7 @@ class RegisterPage extends Component {
 
   clickRegister = () => {
     const { username, password, confirm } = this.state.registerInfo; // Destructure
+    this.props.registerAction({ username, password });
     if (username && password && confirm) {
       if (password === confirm) {
         Axios.post(`http://localhost:2000/users`, {
@@ -26,7 +29,7 @@ class RegisterPage extends Component {
           password,
         })
           .then((res) => {
-            console.log("data masuk");
+            console.log("masuk");
           })
           .catch((err) => {
             console.log(err);
@@ -91,10 +94,22 @@ class RegisterPage extends Component {
               <Button color="danger">To Login</Button>
             </Link>
           </div>
+          <div>
+            <div>{this.props.username}</div>
+            <div>{this.props.password}</div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default RegisterPage;
+const mapStatetoProps = (state) => {
+  return {
+    count: state.count,
+    username: state.username,
+    password: state.password,
+  };
+};
+
+export default connect(mapStatetoProps, { registerAction })(RegisterPage);
