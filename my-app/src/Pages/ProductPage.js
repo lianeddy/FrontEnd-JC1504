@@ -89,6 +89,7 @@ class ProductPage extends Component {
         this.setState({
           bool: true,
         });
+        // this.fetchData()
       })
       .catch((err) => {
         console.log(err);
