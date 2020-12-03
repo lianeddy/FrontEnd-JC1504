@@ -17,6 +17,7 @@ class ProductPage extends Component {
       image: "",
       caption: "",
     },
+    bool: false,
   };
 
   componentDidMount() {
@@ -24,6 +25,15 @@ class ProductPage extends Component {
     // Fetch Data Buah
     // setState = state data
     // Axios get
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.bool) {
+      this.fetchData();
+      this.setState({
+        bool: false,
+      });
+    }
   }
 
   fetchData = () => {
@@ -66,7 +76,6 @@ class ProductPage extends Component {
         [e.target.id]: e.target.value,
       },
     });
-    console.log(this.state.dataInput);
   };
 
   submitData = () => {
@@ -77,7 +86,9 @@ class ProductPage extends Component {
       caption,
     })
       .then((res) => {
-        this.fetchData();
+        this.setState({
+          bool: true,
+        });
       })
       .catch((err) => {
         console.log(err);
