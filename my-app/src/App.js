@@ -7,6 +7,7 @@ import { Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
 import ProductPage from "./Pages/ProductPage";
+import ReduxExercise from "./Pages/ReduxExercise";
 import RegisterPage from "./Pages/RegisterPage";
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
         <Route path="/products" component={ProductPage} />
+        <Route path="/redux-exercise" component={ReduxExercise} />
       </div>
     );
   }

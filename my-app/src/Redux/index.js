@@ -2,6 +2,7 @@ const INITIAL_STATE = {
   count: 0,
   username: "",
   password: "",
+  bool: false,
 };
 // See above
 // Global State adalah state yang bisa dipakai di semua component
@@ -43,6 +44,12 @@ const registerAction = (userData) => {
   };
 };
 
+const toggleBoolean = () => {
+  return {
+    type: "TOGGLE",
+  };
+};
+
 // Reducer
 // Sebuah function
 // function untuk merubah global state
@@ -71,9 +78,21 @@ const reducer = (state = INITIAL_STATE, action) => {
         username: action.payload.username,
         password: action.payload.password,
       };
+    case "TOGGLE":
+      return {
+        ...state,
+        bool: !state.bool,
+      };
     default:
       return state;
   }
 };
 
-export { reducer, increaseCount, decreaseCount, loginAction, registerAction };
+export {
+  reducer,
+  increaseCount,
+  decreaseCount,
+  loginAction,
+  registerAction,
+  toggleBoolean,
+};
