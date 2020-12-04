@@ -1,5 +1,10 @@
+import Axios from "axios";
 import React, { Component } from "react";
 import { Button, Input } from "reactstrap";
+import { api_url } from "../helpers/api_url";
+import { loginAction } from "../redux/action";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class LoginPage extends Component {
   state = {
@@ -18,8 +23,26 @@ class LoginPage extends Component {
     });
   };
 
+  clickLogin = () => {
+    const { email, password } = this.state.loginInfo;
+    Axios.get(`${api_url}/users?email=${email}&password=${password}`)
+      .then((res) => {
+        if (res.data.length !== 0) {
+          this.props.loginAction(res.data[0]);
+        } else {
+          alert("User Invalid");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     const { email, password } = this.state.loginInfo;
+    if (this.props.emailUser !== "") {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <div>
@@ -37,11 +60,17 @@ class LoginPage extends Component {
             onChange={this.onChangeInput}
             value={password}
           />
-          <Button>Log In</Button>
+          <Button onClick={this.clickLogin}>Log In</Button>
         </div>
       </div>
     );
   }
 }
 
-export default LoginPage;
+const mapStatetoProps = (state) => {
+  return {
+    emailUser: state.user.email,
+  };
+};
+
+export default connect(mapStatetoProps, { loginAction })(LoginPage);
