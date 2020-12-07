@@ -1,8 +1,16 @@
+import Axios from "axios";
 import React, { Component } from "react";
+import { Button, Input } from "reactstrap";
+import { api_url } from "../helpers/api_url";
+import { connect } from "react-redux";
+import { loginAction } from "../redux/action";
+import { Redirect } from "react-router-dom";
 
 class RegisterPage extends Component {
   state = {
-    email: "@gmail.com",
+    email: "",
+    password: "",
+    confirmPass: "",
   };
 
   // Register = tambah data ke dalam database (db.json)
@@ -12,13 +20,79 @@ class RegisterPage extends Component {
   // Login automatis setelah register
 
   clickRegister = () => {
-    //Code Here
-    // this.props.loginAction(res.data[0])
+    const { email, password, confirmPass } = this.state;
+    if (password === confirmPass) {
+      Axios.get(`${api_url}/users?email=${email}`)
+        .then((res) => {
+          if (res.data.length === 0) {
+            Axios.post(`${api_url}/users`, { email, password }).then((res) => {
+              this.props.loginAction(res.data);
+            });
+          } else {
+            alert("Email already taken");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Invalid password");
+    }
+  };
+
+  onChangeInput = (e) => {
+    this.setState({
+      ...this.state,
+      [e.target.id]: e.target.value,
+    });
+    console.log(this.state);
   };
 
   render() {
-    return <div>ini register</div>;
+    if (this.props.email !== "") {
+      return <Redirect to="/" />;
+    }
+    return (
+      <div>
+        <div>
+          <Input
+            placeholder="Email"
+            id="email"
+            type="email"
+            value={this.state.email}
+            onChange={this.onChangeInput}
+          />
+        </div>
+        <div>
+          <Input
+            placeholder="Password"
+            id="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.onChangeInput}
+          />
+        </div>
+        <div>
+          <Input
+            placeholder="Confirm Password"
+            id="confirmPass"
+            type="password"
+            value={this.state.confirmPass}
+            onChange={this.onChangeInput}
+          />
+        </div>
+        <div>
+          <Button onClick={this.clickRegister}>Register</Button>
+        </div>
+      </div>
+    );
   }
 }
 
-export default RegisterPage;
+const mapStatetoProps = (state) => {
+  return {
+    email: state.user.email,
+  };
+};
+
+export default connect(mapStatetoProps, { loginAction })(RegisterPage);

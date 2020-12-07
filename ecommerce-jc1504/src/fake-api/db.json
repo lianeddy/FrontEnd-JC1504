@@ -1,7 +1,14 @@
 {
-    "users":[
-        { "id" : 1, "email": "lian.eddy@gmail.com", "password": "asd123" },{
-            "id":2, "email": "bambang@gmail.com"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "lian.eddy@gmail.com",
+      "password": "asd123"
+    },
+    {
+      "email": "lian.eddy@yahoo.com",
+      "password": "123",
+      "id": 2
+    }
+  ]
 }

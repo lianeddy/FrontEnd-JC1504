@@ -45,7 +45,9 @@ class NavigationBar extends Component {
                   <Link to="/login">
                     <DropdownItem>Login</DropdownItem>
                   </Link>
-                  <DropdownItem>Register</DropdownItem>
+                  <Link to="/register">
+                    <DropdownItem>Register</DropdownItem>
+                  </Link>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
