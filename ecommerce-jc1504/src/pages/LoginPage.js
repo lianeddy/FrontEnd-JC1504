@@ -4,7 +4,7 @@ import { Button, Input } from "reactstrap";
 import { api_url } from "../helpers/api_url";
 import { loginAction } from "../redux/action";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class LoginPage extends Component {
   state = {
@@ -45,23 +45,59 @@ class LoginPage extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div>
-        <div>
-          <Input
-            placeholder="email"
-            type="email"
-            id="email"
-            onChange={this.onChangeInput}
-            value={email}
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            id="password"
-            onChange={this.onChangeInput}
-            value={password}
-          />
-          <Button onClick={this.clickLogin}>Log In</Button>
+      <div style={{ height: "100vh" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          className="py-5"
+        >
+          <div style={{ textAlign: "center" }}>
+            <div>
+              <h1>Welcome Back!</h1>
+            </div>
+            <div>
+              <h4>Log in to access your YudhoStore account</h4>
+            </div>
+          </div>
+          <div className="my-2" style={{ width: "25%" }}>
+            <Input
+              placeholder="Email"
+              id="email"
+              type="email"
+              value={email}
+              onChange={this.onChangeInput}
+              style={{ textAlign: "center" }}
+            />
+          </div>
+          <div className="my-2" style={{ width: "25%" }}>
+            <Input
+              placeholder="Password"
+              id="password"
+              type="password"
+              value={password}
+              onChange={this.onChangeInput}
+              style={{ textAlign: "center" }}
+            />
+          </div>
+          <div className="my-2" style={{ width: "25%" }}>
+            <Button
+              onClick={this.clickLogin}
+              color="info"
+              style={{ width: "100%" }}
+            >
+              Login
+            </Button>
+          </div>
+          <div className="my-5" style={{ width: "25%", textAlign: "center" }}>
+            <h5>Don't have an account?</h5>
+            <Link to="/register">
+              <p>Click here to register!</p>
+            </Link>
+          </div>
         </div>
       </div>
     );

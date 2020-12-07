@@ -22,3 +22,12 @@ export const keepLogin = (id) => {
       });
   };
 };
+
+export const logoutAction = () => {
+  return (dispatch) => {
+    localStorage.removeItem("id");
+    dispatch({
+      type: "LOGOUT",
+    });
+  };
+};

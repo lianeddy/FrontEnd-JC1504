@@ -15,6 +15,7 @@ import {
   NavLink,
   UncontrolledDropdown,
 } from "reactstrap";
+import { logoutAction } from "../redux/action";
 
 class NavigationBar extends Component {
   state = {
@@ -34,7 +35,9 @@ class NavigationBar extends Component {
             <DropdownItem>Profile</DropdownItem>
           </Link>
           <Link to="/">
-            <DropdownItem>Log Out</DropdownItem>
+            <DropdownItem onClick={this.props.logoutAction}>
+              Log Out
+            </DropdownItem>
           </Link>
         </DropdownMenu>
       );
@@ -54,7 +57,11 @@ class NavigationBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar
+          style={{ backgroundColor: "#138496", color: "white" }}
+          dark
+          expand="md"
+        >
           <Link to="/">
             <NavbarBrand>YudhoStore</NavbarBrand>
           </Link>
@@ -90,7 +97,9 @@ class NavigationBar extends Component {
                 )} */}
               </UncontrolledDropdown>
             </Nav>
-            <NavbarText>Simple Text</NavbarText>
+            {this.props.email ? (
+              <NavbarText>{this.props.email}</NavbarText>
+            ) : null}
           </Collapse>
         </Navbar>
       </div>
@@ -104,4 +113,4 @@ const mapStatetoProps = ({ user }) => {
   };
 };
 
-export default connect(mapStatetoProps)(NavigationBar);
+export default connect(mapStatetoProps, { logoutAction })(NavigationBar);
