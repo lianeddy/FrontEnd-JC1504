@@ -29,6 +29,7 @@ class LoginPage extends Component {
       .then((res) => {
         if (res.data.length !== 0) {
           this.props.loginAction(res.data[0]);
+          localStorage.setItem("id", res.data[0].id);
         } else {
           alert("User Invalid");
         }

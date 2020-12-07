@@ -9,6 +9,16 @@
       "email": "lian.eddy@yahoo.com",
       "password": "123",
       "id": 2
+    },
+    {
+      "emailUser": "bambang@mail.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "email": "susilo@mail.com",
+      "password": "123",
+      "id": 4
     }
   ]
 }

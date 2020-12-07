@@ -25,8 +25,13 @@ class RegisterPage extends Component {
       Axios.get(`${api_url}/users?email=${email}`)
         .then((res) => {
           if (res.data.length === 0) {
-            Axios.post(`${api_url}/users`, { email, password }).then((res) => {
+            Axios.post(`${api_url}/users`, {
+              email: email,
+              password: password,
+            }).then((res) => {
+              console.log(res.data);
               this.props.loginAction(res.data);
+              localStorage.setItem("id", res.data.id);
             });
           } else {
             alert("Email already taken");
