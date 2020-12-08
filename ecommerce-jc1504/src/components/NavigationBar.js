@@ -68,9 +68,11 @@ class NavigationBar extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Products</NavLink>
-              </NavItem>
+              <Link to="/products">
+                <NavItem>
+                  <NavLink>Products</NavLink>
+                </NavItem>
+              </Link>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   User

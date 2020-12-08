@@ -3,3 +3,4 @@
 // export { loginAction };
 
 export * from "./userActions";
+export * from "./productActions";

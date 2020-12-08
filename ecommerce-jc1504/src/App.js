@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import { NavigationBar } from "./components";
 // import { api_url } from "./helpers/api_url";
-import { Landing, LoginPage, RegisterPage } from "./pages";
+import {
+  Landing,
+  LoginPage,
+  RegisterPage,
+  ProductPage,
+  ProductDetail,
+} from "./pages";
 import { keepLogin, loginAction } from "./redux/action";
 
 class App extends Component {
@@ -31,6 +37,8 @@ class App extends Component {
         <Route path="/" exact component={Landing} />
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/products" component={ProductPage} />
+        <Route path="/product-detail" component={ProductDetail} />
       </div>
     );
   }
