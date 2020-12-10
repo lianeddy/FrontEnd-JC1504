@@ -3,6 +3,7 @@ import queryString from "querystring";
 import { connect } from "react-redux";
 import { fetchProductByIdAction, addToCartAction } from "../redux/action";
 import { Button } from "reactstrap";
+import Fade from "react-reveal/Fade";
 
 class ProductDetail extends Component {
   state = {
@@ -43,6 +44,8 @@ class ProductDetail extends Component {
       userID,
       image,
     };
+    // tidak ada = addtocartaction
+    // ada = editcartaction
     addToCartAction(dataCart);
   };
 
@@ -51,21 +54,30 @@ class ProductDetail extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-8">
+          <div className="col-4">
             <div>
-              <img src={image} alt={`${name}.jpg`} height="300px" />
+              <Fade left>
+                <img src={image} alt={`${name}.jpg`} height="300px" />
+              </Fade>
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-8">
             <div>
               <h1>{name}</h1>
             </div>
             <div>
-              <h4>Rp. {price.toLocaleString()}</h4>
+              <h4>Rp. {price ? price.toLocaleString() : null}</h4>
             </div>
             <div>Available: {stock}</div>
             <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+              harum nesciunt eaque eveniet quisquam vero? Dolores reprehenderit
+              officiis optio, nostrum deleniti veritatis odit minus numquam id
+              expedita praesentium sequi? Ad.
+            </div>
+            <div>
               <Button
+                color="info"
                 onClick={this.decreaseQty}
                 disabled={this.state.qtySelected === 1}
               >
@@ -73,6 +85,7 @@ class ProductDetail extends Component {
               </Button>
               {this.state.qtySelected}
               <Button
+                color="info"
                 onClick={this.increaseQty}
                 disabled={this.state.qtySelected === stock}
               >
@@ -80,7 +93,9 @@ class ProductDetail extends Component {
               </Button>
             </div>
             <div>
-              <Button onClick={this.addToCart}>Add to Cart</Button>
+              <Button onClick={this.addToCart} color="info">
+                Add to Cart
+              </Button>
             </div>
           </div>
         </div>
