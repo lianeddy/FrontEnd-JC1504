@@ -27,6 +27,23 @@ export const fetchProductsAction = () => {
   };
 };
 
+export const fetchbyCategoryAction = (id) => {
+  return (dispatch) => {
+    if (id === 0) {
+      dispatch(fetchProductsAction());
+    } else {
+      Axios.get(`${api_url}/products?categoryID=${id}`)
+        .then((res) => {
+          dispatch({
+            type: "FETCH_PRODUCTS",
+            payload: res.data,
+          });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+};
+
 export const fetchProductByIdAction = (id) => {
   return (dispatch) => {
     Axios.get(`${api_url}/products/${id}`)

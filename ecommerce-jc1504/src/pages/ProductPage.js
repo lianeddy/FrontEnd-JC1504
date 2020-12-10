@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchProductsAction, fetchCategoriesAction } from "../redux/action";
+import {
+  fetchProductsAction,
+  fetchCategoriesAction,
+  fetchbyCategoryAction,
+} from "../redux/action";
 import Select from "react-select";
 import { ProductCard } from "../components";
 import { Link } from "react-router-dom";
 
 class ProductPage extends Component {
-  state = {};
+  state = {
+    selectedCategory: "",
+  };
 
   componentDidMount() {
     const { fetchCategoriesAction, fetchProductsAction } = this.props;
@@ -14,13 +20,26 @@ class ProductPage extends Component {
     fetchProductsAction();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.selectedCategory !== this.state.selectedCategory) {
+      this.props.fetchbyCategoryAction(this.state.selectedCategory);
+    }
+  }
+
   renderCategoryList = () => {
     //[{id: 1, category: "iphone"}]
     //[{value : "iphone", label: "iphone"}]
     let newArr = this.props.categories.map((val) => {
-      return { value: val.category, label: val.category };
+      return { value: val.id, label: val.category };
     });
-    return <Select options={newArr} />;
+    return <Select options={newArr} onChange={this.onChangeCategory} />;
+  };
+
+  onChangeCategory = (e) => {
+    this.setState({
+      selectedCategory: e.value,
+    });
+    console.log(this.state.selectedCategory);
   };
 
   renderProductList = () => {
@@ -62,4 +81,5 @@ const mapStatetoProps = (state) => {
 export default connect(mapStatetoProps, {
   fetchCategoriesAction,
   fetchProductsAction,
+  fetchbyCategoryAction,
 })(ProductPage);
