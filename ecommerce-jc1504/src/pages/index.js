@@ -3,5 +3,13 @@ import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import ProductPage from "./ProductPage";
 import ProductDetail from "./ProductDetail";
+import CartPage from "./CartPage";
 
-export { Landing, LoginPage, RegisterPage, ProductPage, ProductDetail };
+export {
+  Landing,
+  LoginPage,
+  RegisterPage,
+  ProductPage,
+  ProductDetail,
+  CartPage,
+};

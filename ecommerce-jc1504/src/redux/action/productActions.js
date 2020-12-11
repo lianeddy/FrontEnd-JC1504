@@ -16,8 +16,14 @@ export const fetchCategoriesAction = () => {
 
 export const fetchProductsAction = () => {
   return (dispatch) => {
+    dispatch({
+      type: "FETCH_START",
+    });
     Axios.get(`${api_url}/products`)
       .then((res) => {
+        dispatch({
+          type: "FETCH_SUCCESS",
+        });
         dispatch({
           type: "FETCH_PRODUCTS",
           payload: res.data,

@@ -7,6 +7,16 @@ const INITIAL_STATE = {
 
 export const productReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case "FETCH_START":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+      };
     case "FETCH_CATEGORIES":
       return {
         ...state,

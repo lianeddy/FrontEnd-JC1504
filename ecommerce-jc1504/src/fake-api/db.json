@@ -14,11 +14,6 @@
       "emailUser": "bambang@mail.com",
       "password": "123",
       "id": 3
-    },
-    {
-      "email": "susilo@mail.com",
-      "password": "123",
-      "id": 4
     }
   ],
   "categories": [
@@ -83,52 +78,12 @@
   ],
   "cart": [
     {
-      "id": 1,
-      "name": "iPad Pro",
-      "qty": 3,
-      "price": 14000000,
-      "userID": 1,
-      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg"
-    },
-    {
-      "name": "iPad Pro",
-      "qty": 3,
-      "price": 14000000,
-      "userID": 2,
-      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
-      "id": 2
-    },
-    {
       "name": "iPad Pro",
       "qty": 3,
       "price": 14000000,
       "userID": 3,
       "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
       "id": 3
-    },
-    {
-      "name": "iPhone X",
-      "qty": 3,
-      "price": 14000000,
-      "userID": 1,
-      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
-      "id": 4
-    },
-    {
-      "name": "iPhone 12",
-      "qty": 5,
-      "price": 8000000,
-      "userID": 1,
-      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/a/ia1910581224451.jpg",
-      "id": 5
-    },
-    {
-      "name": "iPhone 8",
-      "qty": 1,
-      "price": 5000000,
-      "userID": 1,
-      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/iphone-8-gold_4_1_2.jpg",
-      "id": 6
     },
     {
       "name": "iPhone X",
@@ -177,7 +132,64 @@
       "userID": 4,
       "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
       "id": 12
+    },
+    {
+      "name": "iPhone 8",
+      "qty": 3,
+      "price": 5000000,
+      "userID": 1,
+      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/iphone-8-gold_4_1_2.jpg",
+      "id": 15
     }
   ],
-  "transaction": []
+  "transaction": [
+    {
+      "date": "11-12-2020",
+      "total": 66000000,
+      "items": [
+        {
+          "name": "iPad Pro",
+          "qty": 3,
+          "price": 14000000,
+          "userID": 2,
+          "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
+          "id": 2
+        },
+        {
+          "name": "Macbook Pro",
+          "qty": 2,
+          "price": 12000000,
+          "userID": 2,
+          "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/m/a/macbook-pro-2020-2port-spacegray-1_8_1.jpg",
+          "id": 16
+        }
+      ],
+      "userID": 2,
+      "id": 1
+    },
+    {
+      "date": "11-12-2020",
+      "total": 66000000,
+      "items": [
+        {
+          "name": "iPad Pro",
+          "qty": 3,
+          "price": 14000000,
+          "userID": 2,
+          "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/ipad-air-3-wi-fi-space-gray.jpg",
+          "id": 2
+        },
+        {
+          "name": "Macbook Pro",
+          "qty": 2,
+          "price": 12000000,
+          "userID": 2,
+          "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/m/a/macbook-pro-2020-2port-spacegray-1_8_1.jpg",
+          "id": 16
+        }
+      ],
+      "userID": 2,
+      "id": 2
+    }
+  ]
 }

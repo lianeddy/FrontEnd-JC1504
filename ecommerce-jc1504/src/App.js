@@ -10,6 +10,7 @@ import {
   RegisterPage,
   ProductPage,
   ProductDetail,
+  CartPage,
 } from "./pages";
 import { keepLogin, loginAction } from "./redux/action";
 
@@ -39,6 +40,7 @@ class App extends Component {
         <Route path="/register" component={RegisterPage} />
         <Route path="/products" component={ProductPage} />
         <Route path="/product-detail" component={ProductDetail} />
+        <Route path="/cart" component={CartPage} />
       </div>
     );
   }

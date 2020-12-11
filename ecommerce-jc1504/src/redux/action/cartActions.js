@@ -23,14 +23,45 @@ export const addToCartAction = (data) => {
   };
 };
 
-export const getCartActionById = (id) => {
+export const getCartByIdAction = (id) => {
   return (dispatch) => {
     Axios.get(`${api_url}/cart?userID=${id}`)
-      .then((res) => {
+      .then(({ data }) => {
         dispatch({
           type: "FETCH_CART",
-          payload: res.data,
+          payload: data,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const deleteCartAction = (id, userID) => {
+  return (dispatch) => {
+    Axios.delete(`${api_url}/cart/${id}`)
+      .then((res) => {
+        swal("Success!", "Product deleted from cart!", "success");
+        dispatch(getCartByIdAction(userID));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const checkOutAction = (data) => {
+  return (dispatch) => {
+    Axios.post(`${api_url}/transaction`, data)
+      .then((res) => {
+        console.log("masuk");
+        data.items.forEach((val) => {
+          Axios.delete(`${api_url}/cart/${val.id}`).then((res) => {
+            console.log("deleted id", val.id);
+          });
+        });
+        swal("Success!", "Thank you!", "success");
       })
       .catch((err) => {
         console.log(err);

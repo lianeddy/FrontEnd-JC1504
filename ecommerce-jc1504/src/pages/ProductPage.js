@@ -8,6 +8,7 @@ import {
 import Select from "react-select";
 import { ProductCard } from "../components";
 import { Link } from "react-router-dom";
+import { Spinner } from "reactstrap";
 
 class ProductPage extends Component {
   state = {
@@ -21,6 +22,7 @@ class ProductPage extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log("did update");
     if (prevState.selectedCategory !== this.state.selectedCategory) {
       this.props.fetchbyCategoryAction(this.state.selectedCategory);
     }
@@ -36,6 +38,7 @@ class ProductPage extends Component {
   };
 
   onChangeCategory = (e) => {
+    // console.log(e);
     this.setState({
       selectedCategory: e.value,
     });
@@ -55,6 +58,13 @@ class ProductPage extends Component {
   };
 
   render() {
+    if (this.props.loading) {
+      return (
+        <div>
+          <Spinner />
+        </div>
+      );
+    }
     return (
       <div className="row">
         <div className="col-3">
@@ -75,6 +85,7 @@ const mapStatetoProps = (state) => {
   return {
     categories: state.products.categories,
     productList: state.products.productList,
+    loading: state.products.loading,
   };
 };
 
