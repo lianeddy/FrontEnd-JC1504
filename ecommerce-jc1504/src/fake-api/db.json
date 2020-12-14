@@ -39,25 +39,41 @@
       "id": 1,
       "name": "iPhone 8",
       "categoryID": 1,
-      "price": 5000000,
-      "stock": 5,
+      "price": 10000000,
+      "stock": 20,
       "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/p/iphone-8-gold_4_1_2.jpg"
     },
     {
       "id": 3,
-      "name": "iPhone 12",
+      "name": "iPhone 12 Casing",
       "categoryID": 1,
-      "price": 8000000,
-      "stock": 5,
+      "price": 100000,
+      "stock": 12,
       "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/a/ia1910581224451.jpg"
     },
     {
       "id": 4,
-      "name": "Macbook Pro",
+      "name": "Macbook Pro Max",
       "categoryID": 2,
       "price": 12000000,
-      "stock": 5,
+      "stock": "10",
       "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/m/a/macbook-pro-2020-2port-spacegray-1_8_1.jpg"
+    },
+    {
+      "name": "iPhone 12 Pro",
+      "categoryID": 1,
+      "image": "https://eraspace.com/pub/media/catalog/product/d/e/detail_ip61_lc_cc_01.jpg",
+      "price": 20000000,
+      "stock": 5,
+      "id": 5
+    },
+    {
+      "name": "Macbook Air",
+      "categoryID": 2,
+      "image": "https://eraspace.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/i/b/ibx_macbook_air_2020_gold_1_1_.jpg",
+      "price": 16000000,
+      "stock": 3,
+      "id": 6
     }
   ],
   "cart": [
