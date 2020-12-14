@@ -6,9 +6,12 @@ import {
   getCartByIdAction,
 } from "../redux/action";
 import { Button, Table } from "reactstrap";
+import { Redirect } from "react-router-dom";
 
 class CartPage extends Component {
-  state = {};
+  state = {
+    redirectHome: false,
+  };
 
   componentDidMount() {
     const { getCartByIdAction, userID } = this.props;
@@ -53,6 +56,9 @@ class CartPage extends Component {
       userID: userID,
     };
     checkOutAction(checkOutData);
+    this.setState({
+      redirectHome: true,
+    });
   };
 
   renderTableBody = () => {
@@ -79,7 +85,19 @@ class CartPage extends Component {
       );
     });
   };
+
   render() {
+    const { redirectHome } = this.state;
+    const { cartList } = this.props;
+    if (redirectHome) {
+      return <Redirect to="/" />;
+    } else if (cartList.length === 0) {
+      return (
+        <div>
+          <div>Cart Empty</div>
+        </div>
+      );
+    }
     return (
       <div>
         <Table>

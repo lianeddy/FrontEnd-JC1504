@@ -11,6 +11,8 @@ import {
   ProductPage,
   ProductDetail,
   CartPage,
+  HistoryPage,
+  ManageProduct,
 } from "./pages";
 import { keepLogin, loginAction } from "./redux/action";
 
@@ -41,6 +43,8 @@ class App extends Component {
         <Route path="/products" component={ProductPage} />
         <Route path="/product-detail" component={ProductDetail} />
         <Route path="/cart" component={CartPage} />
+        <Route path="/history-transaction" component={HistoryPage} />
+        <Route path="/manage-product" component={ManageProduct} />
       </div>
     );
   }

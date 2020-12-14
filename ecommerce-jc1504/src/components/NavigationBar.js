@@ -37,6 +37,12 @@ class NavigationBar extends Component {
           <Link to="/cart">
             <DropdownItem>Cart</DropdownItem>
           </Link>
+          <Link to="/history-transaction">
+            <DropdownItem>History</DropdownItem>
+          </Link>
+          <Link to="/manage-product">
+            <DropdownItem>Manage Products</DropdownItem>
+          </Link>
           <Link to="/">
             <DropdownItem onClick={this.props.logoutAction}>
               Log Out

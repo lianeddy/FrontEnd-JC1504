@@ -4,6 +4,8 @@ import RegisterPage from "./RegisterPage";
 import ProductPage from "./ProductPage";
 import ProductDetail from "./ProductDetail";
 import CartPage from "./CartPage";
+import HistoryPage from "./HistoryPage";
+import ManageProduct from "./ManageProduct";
 
 export {
   Landing,
@@ -12,4 +14,6 @@ export {
   ProductPage,
   ProductDetail,
   CartPage,
+  HistoryPage,
+  ManageProduct,
 };
